@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Ecobank Tokens | APIX</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="SAP Customer List" name="description" />
+        <meta content="FISCALBLACKBOX" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="../assets/images/favicon.png">
+
+	    <!-- App css -->
+	    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
+	    <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
+
+	    <link href="../assets/css/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
+	    <link href="../assets/css/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
+
+	    <!-- icons -->
+	    <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+		<style>
+			.modal {
+				display: none; 
+				position: fixed; 
+				z-index: 99999; 
+				left: 0;
+				top: 0;
+				width: 100%; 
+				height: 100%; 
+				overflow: auto; 
+				background-color: rgb(0,0,0); 
+				background-color: rgba(0,0,0,0.4); 
+			}
+			.json_cnt {
+				display: none; 
+				position: fixed; 
+				left: 0;
+				top: 0;
+				width: 100%; 
+				height: 100%; 
+				overflow: auto; 
+				background-color: rgb(0,0,0); 
+				background-color: rgba(0,0,0,0.4); 
+			}
+
+			.modal-content {
+				z-index: 1000; 
+				background-color: #fefefe;
+				margin: 15% auto; 
+				padding: 10px;
+				left: 0;
+				top: 0;
+				border: 1px solid #888;
+				width: 80%; 
+			}
+
+			.close {
+				color: #aaa;
+				float: right;
+				font-size: 28px;
+				font-weight: bold;
+			}
+
+			.close:hover,
+			.close:focus {
+				color: black;
+				text-decoration: none;
+				cursor: pointer;
+			}
+
+		</style>
+
+    </head>
+
+    <body class="loading">
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            <!-- Topbar Start -->
+            <div class="navbar-custom">
+                <div class="container-fluid">
+                    <ul class="list-unstyled topnav-menu float-right mb-0">
+
+                        <li class="d-none d-lg-block">
+                            <form class="app-search">
+                                <div class="app-search-box dropdown">
+                                    <div class="input-group">
+                                        <input type="search" class="form-control" placeholder="Search..." id="top-search">
+                                        <div class="input-group-append">
+                                            <button class="btn" type="submit">
+                                                <i class="fe-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </li>
+    
+                        <li class="dropdown d-inline-block d-lg-none">
+                            <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <i class="fe-search noti-icon"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-lg dropdown-menu-right p-0">
+                                <form class="p-3">
+                                    <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                </form>
+                            </div>
+                        </li>
+    
+                        <li class="dropdown d-none d-lg-inline-block">
+                            <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-toggle="fullscreen" href="#">
+                                <i class="fe-maximize noti-icon"></i>
+                            </a>
+                        </li>
+						
+						
+                        <li class="dropdown d-none d-lg-inline-block topbar-dropdown">
+                            <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <i class="fe-grid noti-icon"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-lg dropdown-menu-right">
+    
+                                <div class="p-lg-1">
+                                    <div class="row no-gutters">
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="../assets/images/brands/slack.png" alt="slack">
+                                                <span>Slack</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="../assets/images/brands/github.png" alt="Github">
+                                                <span>GitHub</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="../assets/images/brands/dribbble.png" alt="dribbble">
+                                                <span>Dribbble</span>
+                                            </a>
+                                        </div>
+                                    </div>
+    
+                                    <div class="row no-gutters">
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="../assets/images/brands/bitbucket.png" alt="bitbucket">
+                                                <span>Bitbucket</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="../assets/images/brands/dropbox.png" alt="dropbox">
+                                                <span>Dropbox</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="../assets/images/brands/g-suite.png" alt="G Suite">
+                                                <span>G Suite</span>
+                                            </a>
+                                        </div>
+                            
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </li>
+    
+    
+                        <li class="dropdown d-none d-lg-inline-block topbar-dropdown">
+                            <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <img src="../assets/images/flags/us.jpg" alt="user-image" height="16">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+    
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">
+                                    <img src="../assets/images/flags/germany.jpg" alt="user-image" class="mr-1" height="12"> <span class="align-middle">German</span>
+                                </a>
+    
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">
+                                    <img src="../assets/images/flags/italy.jpg" alt="user-image" class="mr-1" height="12"> <span class="align-middle">Italian</span>
+                                </a>
+    
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">
+                                    <img src="../assets/images/flags/spain.jpg" alt="user-image" class="mr-1" height="12"> <span class="align-middle">Spanish</span>
+                                </a>
+    
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">
+                                    <img src="../assets/images/flags/russia.jpg" alt="user-image" class="mr-1" height="12"> <span class="align-middle">Russian</span>
+                                </a>
+    
+                            </div>
+                        </li>
+            
+                        <li class="dropdown notification-list topbar-dropdown">
+                            <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <img src="../assets/images/users/ppc.png" alt="user-image" class="rounded-circle">
+                                <span class="pro-user-name ml-1">
+                                    Geneva alain <i class="mdi mdi-chevron-down"></i> 
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                                <!-- item-->
+                                <div class="dropdown-header noti-title">
+                                    <h6 class="text-overflow m-0">Welcome !</h6>
+                                </div>
+    
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="fe-user"></i>
+                                    <span>My Account</span>
+                                </a>
+    
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="fe-settings"></i>
+                                    <span>Settings</span>
+                                </a>
+    
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="fe-lock"></i>
+                                    <span>Lock Screen</span>
+                                </a>
+    
+                                <div class="dropdown-divider"></div>
+    
+                                <!-- item-->
+                                <a href="/log_out" class="dropdown-item notify-item">
+                                    <i class="fe-log-out"></i>
+                                    <span>Logout</span>
+                                </a>
+    
+                            </div>
+                        </li>
+    
+    
+                    </ul>
+    
+                    <!-- LOGO -->
+                    <div class="logo-box">
+                        <a href="index.html" class="logo logo-dark text-center">
+                            <span class="logo-sm">
+                                <img src="../assets/images/logo.png" alt="" height="22">
+                                <!-- <span class="logo-lg-text-light">UBold</span> -->
+                            </span>
+                            <span class="logo-lg">
+                                <img src="../assets/images/logo.png" alt="" height="20">
+                                <!-- <span class="logo-lg-text-light">U</span> -->
+                            </span>
+                        </a>
+    
+                        <a href="index.html" class="logo logo-light text-center">
+                            <span class="logo-sm">
+                                <img src="../assets/images/logo.png" alt="" height="22">
+                            </span>
+                            <span class="logo-lg" style="color: silver;font-weight: bold;font-size: 25px;font-family: Cerebri Sans,sans-serif,Helvetica,Times New Roman,sans-serif;">
+                                <img src="../assets/images/logo.png" alt="" height="22" style="margin-right: 5px">APIX
+                            </span>
+                        </a>
+                    </div>
+    
+                    <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+                        <li>
+                            <button class="button-menu-mobile waves-effect waves-light">
+                                <i class="fe-menu"></i>
+                            </button>
+                        </li>
+
+                        <li>
+                            <!-- Mobile menu toggle (Horizontal Layout)-->
+                            <a class="navbar-toggle nav-link" data-toggle="collapse" data-target="#topnav-menu-content">
+                                <div class="lines">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </a>
+                            <!-- End mobile menu toggle-->
+                        </li>   
+            
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <!-- end Topbar -->
+
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+
+			  <!-- Modal content -->
+			  <div class="modal-content">
+				<span class="close">&times;</span>
+				<div id="popup_content">
+					<center><table class="modal_table">
+						<tr><div id="qrcode"  height="180"></div></tr>
+					</table></center>
+				</div>
+			  </div>
+
+			</div>
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="left-side-menu">
+
+                <div class="h-100" data-simplebar>
+
+                    <!-- User box -->
+                    <div class="user-box text-center">
+                        <img src="../assets/images/users/user-1.jpg" alt="user-img" title="Mat Helme"
+                            class="rounded-circle avatar-md">
+                        <div class="dropdown">
+                            <a href="javascript: void(0);" class="text-dark dropdown-toggle h5 mt-2 mb-1 d-block"
+                                data-toggle="dropdown">Geneva Kennedy</a>
+                            <div class="dropdown-menu user-pro-dropdown">
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="fe-user mr-1"></i>
+                                    <span>My Account</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="fe-settings mr-1"></i>
+                                    <span>Settings</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="fe-lock mr-1"></i>
+                                    <span>Lock Screen</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="/log_out" class="dropdown-item notify-item">
+                                    <i class="fe-log-out mr-1"></i>
+                                    <span>Logout</span>
+                                </a>
+
+                            </div>
+                        </div>
+                        <p class="text-muted">Admin Head</p>
+                    </div>
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+
+                        <ul id="side-menu">
+
+                            <li class="menu-title">Navigation</li>
+                
+                            <li>
+                                <a href="#sidebarDashboards" data-toggle="collapse">
+                                    <i data-feather="airplay"></i>
+                                    <span class="menu-arrow"></span>
+                                    <span> Dashboards </span>
+                                </a>
+                                <div class="collapse" id="sidebarDashboards">
+                                    <ul class="nav-second-level">
+                                        <li>
+                                            <a href="crm-customers.html">Customers</a>
+                                        </li>
+                                        <li>
+                                            <a href="crm-quotation.html">Quotations</a>
+                                        </li>
+                                        <li>
+                                            <a href="eco-token.html">Ecobank Tokens</a>
+                                        </li>
+                                        <li>
+                                            <a href="crm-order.html">PPC orders</a>
+                                        </li>
+                                        <li>
+                                            <a href="log-sap.html">Log SAP</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li class="menu-title mt-2">Apps</li>
+
+                            <li>
+                                <a href="apps-calendar.html">
+                                    <i data-feather="calendar"></i>
+                                    <span> Calendar </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="apps-chat.html">
+                                    <i data-feather="message-square"></i>
+                                    <span> Chat </span>
+                                </a>
+                            </li>
+					</ul>
+
+                    </div>
+                    <!-- End Sidebar -->
+
+                    <div class="clearfix"></div>
+
+                </div>
+                <!-- Sidebar -left -->
+
+            </div>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+                        
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box">
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="index.html">APIX</a></li>
+                                            <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                                            <li class="breadcrumb-item active">Ecobank Tokens</li>
+                                        </ol>
+                                    </div>
+                                    <h4 class="page-title">Ecobank Tokens</h4>
+                                </div>
+                            </div>
+                        </div>     
+                        <!-- end page title --> 
+
+
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row mb-2">
+                                            <div class="col-sm-4">
+                                                <form class="form-inline">
+                                                    <div class="form-group mb-2">
+                                                        <label for="inputPassword2" class="sr-only">Search</label>
+                                                        <input type="search" class="form-control" id="inputPassword2" placeholder="Search...">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <div class="text-sm-right">
+                                                    <button type="button" class="btn btn-danger waves-effect waves-light mb-2" data-toggle="modal" data-target="#custom-modal">Search</button>
+                                                </div>
+                                            </div><!-- end col-->
+                                        </div>
+                
+                                        <div class="table-responsive">
+                                            <table class="table table-centered table-nowrap table-hover mb-0">
+                                                <thead>
+                                                    <tr>
+														<th>ResponseMessage</th>
+														<th>ResponseCode</th>
+														<th>Ec_termianl_id</th>
+														<th>Ec_ccy</th>
+														<th>Ec_transaction_id</th>
+														<th>PaymentRef</th>
+														<th>Ec_amount_paid</th>
+														<th>Cba_reference_no</th>
+														<th>Ec_customer_id</th>
+														<th>PaymentStatus</th>
+                                                   </tr>
+                                                </thead>
+                                                <tbody class="ajout_dynamic">
+                                                    {tbody}
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <ul class="pagination pagination-rounded justify-content-end mb-0 mt-2">
+                                            <li class="page-item">
+                                                <a class="page-link" href="javascript: gauche();" aria-label="Previous">
+                                                    <span aria-hidden="true">«</span>
+                                                    <span class="sr-only">Previous</span>
+                                                </a>
+                                            </li>
+                                            <li class="page-item active" id="1"><a class="page-link" href="javascript: click(1);">1</a></li>
+                                            <li class="page-item" id="2"><a class="page-link" href="javascript: click(2);">2</a></li>
+                                            <li class="page-item" id="3"><a class="page-link" href="javascript: click(3);">3</a></li>
+                                            <li class="page-item" id="4"><a class="page-link" href="javascript: click(4);">4</a></li>
+                                            <li class="page-item" id="5"><a class="page-link" href="javascript: click(5);">5</a></li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="javascript: droite();" aria-label="Next">
+                                                    <span aria-hidden="true">»</span>
+                                                    <span class="sr-only">Next</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col -->
+
+                            <div class="col-lg-4">
+                                <div class="card-box">
+                                    <div class="media mb-3">
+                                        <div class="media-body">
+                                            <h4 class="mt-0 mb-1">PPC Cement Plant</h4>
+                                            <p class="text-muted">Warehouse Manager</p>
+                                            <p class="text-muted"><i class="mdi mdi-office-building"></i> Kinshasa, RDC</p>
+
+                                            <a href="javascript: void(0);" class="btn- btn-xs btn-info">WhatsApp</a>
+                                            <a href="javascript: void(0);" class="btn- btn-xs btn-secondary">Call</a>
+                                            <a href="javascript: void(0);" class="btn- btn-xs btn-secondary">Email</a>
+                                        </div>
+                                    </div>
+
+                                    <h5 class="mb-3 mt-4 text-uppercase bg-light p-2"><i class="mdi mdi-account-circle mr-1"></i> MESSAGE BOARD</h5>
+                                    <div class="">
+                                        
+                                        <p class="mb-3">
+                                            Hi I'm Willy. we are running some tests on this new APIX Collaborative Tool.
+                                            the POS allows you to pull quotations and sales orders and check on their status.
+                                        </p>
+
+
+                                        <h4 class="font-13 text-muted text-uppercase mb-1">Company :</h4>
+                                        <p class="mb-3">PPC Barnet RDC</p>
+
+                                        
+
+                                    </div>
+
+                                </div> <!-- end card-box-->
+                            </div>
+                        </div>
+                        <!-- end row -->
+                        
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
+
+                <!-- Footer Start -->
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <script>document.write(new Date().getFullYear())</script> &copy; Fiscal BlackBox
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- end Footer -->
+
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+
+
+        </div>
+        <!-- END wrapper -->
+
+
+        <!-- Right bar overlay-->
+        <div class="rightbar-overlay"></div>
+
+        <!-- Vendor js -->
+        <script src="../assets/js/vendor.min.js"></script>
+
+        <!-- App js -->
+        <script src="../assets/js/app.min.js"></script>
+		<script src="qrcode.min.js"></script>
+        <script>
+			function gauche(){
+				var x = document.getElementsByClassName("page-item active")[0].id;
+				if(x>1){
+					document.getElementById(x).className="page-item";
+					crm_quotations(""+(x-1));
+				}
+				
+			}
+			function droite(){
+				var x = document.getElementsByClassName("page-item active")[0].id;
+				if(x<5){
+					document.getElementById(x).className="page-item";
+					crm_quotations(""+(eval(x)+eval(1)));
+				}
+			}
+			function click(i){
+				var x = document.getElementsByClassName("page-item active")[0].id;
+				document.getElementById(x).className="page-item";
+				crm_quotations(i);
+			}
+			function crm_quotations(ii){
+				//alert('page onload');
+				var xmlhttp;
+				if(window.XMLHttpRequest){
+				   xmlhttp = new XMLHttpRequest;
+				}
+				else{
+				   xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				//alert('ajax '+xmlhttp+' 2');
+				xmlhttp.onreadystatechange = function(){
+				  if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+						//alert(xmlhttp.responseText);
+						
+						var json=JSON.parse(xmlhttp.responseText);
+						var content=json.content;
+						var pageable=json.pageable;
+						var totalPages=json.totalPages;
+						var totalElements=json.totalElements;
+						var numberOfElements=json.numberOfElements;
+						var first=json.first;
+						var last=json.last;
+						var empty=json.empty;
+						
+						var size=content.length;
+						var tbody = document.getElementsByClassName("ajout_dynamic")[0];
+						var cnt='';
+						for(var i=0;i<10&&size>0&&i<size;i++){
+							cnt+='<tr class="clickable-row" id="lin'+i+'"><td>'+content[i].datasetSpecificFields.responseMessage+'</td><td>'+content[i].datasetSpecificFields.responseCode+'</td><td>'+content[i].datasetSpecificFields.ec_termianl_id+'</td><td>'+content[i].datasetSpecificFields.ec_ccy+'</td><td>'+content[i].datasetSpecificFields.ec_transaction_id+'</td><td>'+content[i].datasetSpecificFields.paymentRef+'</td><td>'+content[i].datasetSpecificFields.ec_amount_paid+'</td><td>'+content[i].datasetSpecificFields.cba_reference_no+'</td><td>'+content[i].datasetSpecificFields.ec_customer_id+'</td><td>'+content[i].datasetSpecificFields.paymentStatus+'</td><div class="json_cnt" id="line_'+i+'">'+JSON.stringify(content[i])+'</div></tr>';
+						}
+						tbody.innerHTML=cnt;
+						document.getElementById(ii).className="page-item active";
+						cli = document.getElementsByClassName("clickable-row");
+						cli[0].onclick=function(){
+							var cnt=document.getElementById("line_0").innerText;
+							document.getElementById("qrcode").innerHTML='';
+							var m_table=document.getElementsByClassName("modal_table")[0];
+							var json=JSON.parse(cnt);
+							let temp='';
+							temp+='<tr><div id="qrcode"  height="180"></div></tr>';
+							for (var key in json.datasetSpecificFields){
+								if(!key.localeCompare("paymentDataFields")){
+								
+								}
+								else{
+									var value = json.datasetSpecificFields[key];
+									temp+='<tr><td>'+key+'</td><td> : '+value+'</td></tr>';
+								}
+							}
+							m_table.innerHTML=temp;
+							modal = document.getElementById("myModal");
+							new QRCode(document.getElementById("qrcode"), json.uid);
+							modal.style.display = "block";
+						}
+						cli[1].onclick=function(){
+							var cnt=document.getElementById("line_1").innerText;
+							document.getElementById("qrcode").innerHTML='';
+							var m_table=document.getElementsByClassName("modal_table")[0];
+							var json=JSON.parse(cnt);
+							let temp='';
+							temp+='<tr><div id="qrcode"  height="180"></div></tr>';
+							for (var key in json.datasetSpecificFields){
+								if(!key.localeCompare("paymentDataFields")){
+								
+								}
+								else{
+									var value = json.datasetSpecificFields[key];
+									temp+='<tr><td>'+key+'</td><td> : '+value+'</td></tr>';
+								}
+							}
+							m_table.innerHTML=temp;
+							modal = document.getElementById("myModal");
+							new QRCode(document.getElementById("qrcode"), json.uid);
+							modal.style.display = "block";
+						}
+						cli[2].onclick=function(){
+							var cnt=document.getElementById("line_2").innerText;
+							document.getElementById("qrcode").innerHTML='';
+							var m_table=document.getElementsByClassName("modal_table")[0];
+							var json=JSON.parse(cnt);
+							let temp='';
+							temp+='<tr><div id="qrcode"  height="180"></div></tr>';
+							for (var key in json.datasetSpecificFields){
+								if(!key.localeCompare("paymentDataFields")){
+								
+								}
+								else{
+									var value = json.datasetSpecificFields[key];
+									temp+='<tr><td>'+key+'</td><td> : '+value+'</td></tr>';
+								}
+							}
+							m_table.innerHTML=temp;
+							modal = document.getElementById("myModal");
+							new QRCode(document.getElementById("qrcode"), json.uid);
+							modal.style.display = "block";
+						}
+						cli[3].onclick=function(){
+							var cnt=document.getElementById("line_3").innerText;
+							document.getElementById("qrcode").innerHTML='';
+							var m_table=document.getElementsByClassName("modal_table")[0];
+							var json=JSON.parse(cnt);
+							let temp='';
+							temp+='<tr><div id="qrcode"  height="180"></div></tr>';
+							for (var key in json.datasetSpecificFields){
+								if(!key.localeCompare("paymentDataFields")){
+								
+								}
+								else{
+									var value = json.datasetSpecificFields[key];
+									temp+='<tr><td>'+key+'</td><td> : '+value+'</td></tr>';
+								}
+							}
+							m_table.innerHTML=temp;
+							modal = document.getElementById("myModal");
+							new QRCode(document.getElementById("qrcode"), json.uid);
+							modal.style.display = "block";
+						}
+						cli[4].onclick=function(){
+							var cnt=document.getElementById("line_4").innerText;
+							document.getElementById("qrcode").innerHTML='';
+							var m_table=document.getElementsByClassName("modal_table")[0];
+							var json=JSON.parse(cnt);
+							let temp='';
+							temp+='<tr><div id="qrcode"  height="180"></div></tr>';
+							for (var key in json.datasetSpecificFields){
+								if(!key.localeCompare("paymentDataFields")){
+								
+								}
+								else{
+									var value = json.datasetSpecificFields[key];
+									temp+='<tr><td>'+key+'</td><td> : '+value+'</td></tr>';
+								}
+							}
+							m_table.innerHTML=temp;
+							modal = document.getElementById("myModal");
+							new QRCode(document.getElementById("qrcode"), json.uid);
+							modal.style.display = "block";
+						}
+						cli[5].onclick=function(){
+							var cnt=document.getElementById("line_5").innerText;
+							document.getElementById("qrcode").innerHTML='';
+							var m_table=document.getElementsByClassName("modal_table")[0];
+							var json=JSON.parse(cnt);
+							let temp='';
+							temp+='<tr><div id="qrcode"  height="180"></div></tr>';
+							for (var key in json.datasetSpecificFields){
+								if(!key.localeCompare("paymentDataFields")){
+								
+								}
+								else{
+									var value = json.datasetSpecificFields[key];
+									temp+='<tr><td>'+key+'</td><td> : '+value+'</td></tr>';
+								}
+							}
+							m_table.innerHTML=temp;
+							modal = document.getElementById("myModal");
+							new QRCode(document.getElementById("qrcode"), json.uid);
+							modal.style.display = "block";
+						}
+						cli[6].onclick=function(){
+							var cnt=document.getElementById("line_6").innerText;
+							document.getElementById("qrcode").innerHTML='';
+							var m_table=document.getElementsByClassName("modal_table")[0];
+							var json=JSON.parse(cnt);
+							let temp='';
+							temp+='<tr><div id="qrcode"  height="180"></div></tr>';
+							for (var key in json.datasetSpecificFields){
+								if(!key.localeCompare("paymentDataFields")){
+								
+								}
+								else{
+									var value = json.datasetSpecificFields[key];
+									temp+='<tr><td>'+key+'</td><td> : '+value+'</td></tr>';
+								}
+							}
+							m_table.innerHTML=temp;
+							modal = document.getElementById("myModal");
+							new QRCode(document.getElementById("qrcode"), json.uid);
+							modal.style.display = "block";
+						}
+						cli[7].onclick=function(){
+							var cnt=document.getElementById("line_7").innerText;
+							document.getElementById("qrcode").innerHTML='';
+							var m_table=document.getElementsByClassName("modal_table")[0];
+							var json=JSON.parse(cnt);
+							let temp='';
+							temp+='<tr><div id="qrcode"  height="180"></div></tr>';
+							for (var key in json.datasetSpecificFields){
+								if(!key.localeCompare("paymentDataFields")){
+								
+								}
+								else{
+									var value = json.datasetSpecificFields[key];
+									temp+='<tr><td>'+key+'</td><td> : '+value+'</td></tr>';
+								}
+							}
+							m_table.innerHTML=temp;
+							modal = document.getElementById("myModal");
+							new QRCode(document.getElementById("qrcode"), json.uid);
+							modal.style.display = "block";
+						}
+						cli[8].onclick=function(){
+							var cnt=document.getElementById("line_8").innerText;
+							document.getElementById("qrcode").innerHTML='';
+							var m_table=document.getElementsByClassName("modal_table")[0];
+							var json=JSON.parse(cnt);
+							let temp='';
+							temp+='<tr><div id="qrcode"  height="180"></div></tr>';
+							for (var key in json.datasetSpecificFields){
+								if(!key.localeCompare("paymentDataFields")){
+								
+								}
+								else{
+									var value = json.datasetSpecificFields[key];
+									temp+='<tr><td>'+key+'</td><td> : '+value+'</td></tr>';
+								}
+							}
+							m_table.innerHTML=temp;
+							modal = document.getElementById("myModal");
+							new QRCode(document.getElementById("qrcode"), json.uid);
+							modal.style.display = "block";
+						}
+						cli[9].onclick=function(){
+							var cnt=document.getElementById("line_9").innerText;
+							document.getElementById("qrcode").innerHTML='';
+							var m_table=document.getElementsByClassName("modal_table")[0];
+							var json=JSON.parse(cnt);
+							let temp='';
+							temp+='<tr><div id="qrcode"  height="180"></div></tr>';
+							for (var key in json.datasetSpecificFields){
+								if(!key.localeCompare("paymentDataFields")){
+								
+								}
+								else{
+									var value = json.datasetSpecificFields[key];
+									temp+='<tr><td>'+key+'</td><td> : '+value+'</td></tr>';
+								}
+							}
+							m_table.innerHTML=temp;
+							modal = document.getElementById("myModal");
+							new QRCode(document.getElementById("qrcode"), json.uid);
+							modal.style.display = "block";
+						}
+					}
+				}
+				xmlhttp.open("GET", "/api/transaction?datasetCode=CB000&page="+(ii-1)+"&size=10");
+				xmlhttp.send();
+			}
+			var modal = document.getElementById("myModal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+var cli = document.getElementsByClassName("clickable-row");
+cli[0].onclick=function(){
+	var cnt=document.getElementById("line0").innerText;
+	document.getElementById("qrcode").innerHTML='';
+	var m_table=document.getElementsByClassName("modal_table")[0];
+	var json=JSON.parse(cnt);
+	let temp='';
+	temp+='<tr><div id="qrcode"  height="180"></div></tr>';
+	for (var key in json.datasetSpecificFields){
+		if(!key.localeCompare("paymentDataFields")){
+		
+		}
+		else{
+			var value = json.datasetSpecificFields[key];
+			temp+='<tr><td>'+key+'</td><td> : '+value+'</td></tr>';
+		}
+	}
+	m_table.innerHTML=temp;
+	modal = document.getElementById("myModal");
+	new QRCode(document.getElementById("qrcode"), json.uid);
+	modal.style.display = "block";
+}
+cli[1].onclick=function(){
+	var cnt=document.getElementById("line1").innerText;
+	document.getElementById("qrcode").innerHTML='';
+	var m_table=document.getElementsByClassName("modal_table")[0];
+	var json=JSON.parse(cnt);
+	let temp='';
+	temp+='<tr><div id="qrcode"  height="180"></div></tr>';
+	for (var key in json.datasetSpecificFields){
+		if(!key.localeCompare("paymentDataFields")){
+		
+		}
+		else{
+			var value = json.datasetSpecificFields[key];
+			temp+='<tr><td>'+key+'</td><td> : '+value+'</td></tr>';
+		}
+	}
+	m_table.innerHTML=temp;
+	modal = document.getElementById("myModal");
+	new QRCode(document.getElementById("qrcode"), json.uid);
+	modal.style.display = "block";
+}
+cli[2].onclick=function(){
+	var cnt=document.getElementById("line2").innerText;
+	document.getElementById("qrcode").innerHTML='';
+	var m_table=document.getElementsByClassName("modal_table")[0];
+	var json=JSON.parse(cnt);
+	let temp='';
+	temp+='<tr><div id="qrcode"  height="180"></div></tr>';
+	for (var key in json.datasetSpecificFields){
+		if(!key.localeCompare("paymentDataFields")){
+		
+		}
+		else{
+			var value = json.datasetSpecificFields[key];
+			temp+='<tr><td>'+key+'</td><td> : '+value+'</td></tr>';
+		}
+	}
+	m_table.innerHTML=temp;
+	modal = document.getElementById("myModal");
+	new QRCode(document.getElementById("qrcode"), json.uid);
+	modal.style.display = "block";
+}
+cli[3].onclick=function(){
+	var cnt=document.getElementById("line3").innerText;
+	document.getElementById("qrcode").innerHTML='';
+	var m_table=document.getElementsByClassName("modal_table")[0];
+	var json=JSON.parse(cnt);
+	let temp='';
+	temp+='<tr><div id="qrcode"  height="180"></div></tr>';
+	for (var key in json.datasetSpecificFields){
+		if(!key.localeCompare("paymentDataFields")){
+		
+		}
+		else{
+			var value = json.datasetSpecificFields[key];
+			temp+='<tr><td>'+key+'</td><td> : '+value+'</td></tr>';
+		}
+	}
+	m_table.innerHTML=temp;
+	modal = document.getElementById("myModal");
+	new QRCode(document.getElementById("qrcode"), json.uid);
+	modal.style.display = "block";
+}
+cli[4].onclick=function(){
+	var cnt=document.getElementById("line4").innerText;
+	document.getElementById("qrcode").innerHTML='';
+	var m_table=document.getElementsByClassName("modal_table")[0];
+	var json=JSON.parse(cnt);
+	let temp='';
+	temp+='<tr><div id="qrcode"  height="180"></div></tr>';
+	for (var key in json.datasetSpecificFields){
+		if(!key.localeCompare("paymentDataFields")){
+		
+		}
+		else{
+			var value = json.datasetSpecificFields[key];
+			temp+='<tr><td>'+key+'</td><td> : '+value+'</td></tr>';
+		}
+	}
+	m_table.innerHTML=temp;
+	modal = document.getElementById("myModal");
+	new QRCode(document.getElementById("qrcode"), json.uid);
+	modal.style.display = "block";
+}
+cli[5].onclick=function(){
+	var cnt=document.getElementById("line5").innerText;
+	document.getElementById("qrcode").innerHTML='';
+	var m_table=document.getElementsByClassName("modal_table")[0];
+	var json=JSON.parse(cnt);
+	let temp='';
+	temp+='<tr><div id="qrcode"  height="180"></div></tr>';
+	for (var key in json.datasetSpecificFields){
+		if(!key.localeCompare("paymentDataFields")){
+		
+		}
+		else{
+			var value = json.datasetSpecificFields[key];
+			temp+='<tr><td>'+key+'</td><td> : '+value+'</td></tr>';
+		}
+	}
+	m_table.innerHTML=temp;
+	modal = document.getElementById("myModal");
+	new QRCode(document.getElementById("qrcode"), json.uid);
+	modal.style.display = "block";
+}
+cli[6].onclick=function(){
+	var cnt=document.getElementById("line6").innerText;
+	document.getElementById("qrcode").innerHTML='';
+	var m_table=document.getElementsByClassName("modal_table")[0];
+	var json=JSON.parse(cnt);
+	let temp='';
+	temp+='<tr><div id="qrcode"  height="180"></div></tr>';
+	for (var key in json.datasetSpecificFields){
+		if(!key.localeCompare("paymentDataFields")){
+		
+		}
+		else{
+			var value = json.datasetSpecificFields[key];
+			temp+='<tr><td>'+key+'</td><td> : '+value+'</td></tr>';
+		}
+	}
+	m_table.innerHTML=temp;
+	modal = document.getElementById("myModal");
+	new QRCode(document.getElementById("qrcode"), json.uid);
+	modal.style.display = "block";
+}
+cli[7].onclick=function(){
+	var cnt=document.getElementById("line7").innerText;
+	document.getElementById("qrcode").innerHTML='';
+	var m_table=document.getElementsByClassName("modal_table")[0];
+	var json=JSON.parse(cnt);
+	let temp='';
+	temp+='<tr><div id="qrcode"  height="180"></div></tr>';
+	for (var key in json.datasetSpecificFields){
+		if(!key.localeCompare("paymentDataFields")){
+		
+		}
+		else{
+			var value = json.datasetSpecificFields[key];
+			temp+='<tr><td>'+key+'</td><td> : '+value+'</td></tr>';
+		}
+	}
+	m_table.innerHTML=temp;
+	modal = document.getElementById("myModal");
+	new QRCode(document.getElementById("qrcode"), json.uid);
+	modal.style.display = "block";
+}
+cli[8].onclick=function(){
+	var cnt=document.getElementById("line8").innerText;
+	document.getElementById("qrcode").innerHTML='';
+	var m_table=document.getElementsByClassName("modal_table")[0];
+	var json=JSON.parse(cnt);
+	let temp='';
+	temp+='<tr><div id="qrcode"  height="180"></div></tr>';
+	for (var key in json.datasetSpecificFields){
+		if(!key.localeCompare("paymentDataFields")){
+		
+		}
+		else{
+			var value = json.datasetSpecificFields[key];
+			temp+='<tr><td>'+key+'</td><td> : '+value+'</td></tr>';
+		}
+	}
+	m_table.innerHTML=temp;
+	modal = document.getElementById("myModal");
+	new QRCode(document.getElementById("qrcode"), json.uid);
+	modal.style.display = "block";
+}
+cli[9].onclick=function(){
+	var cnt=document.getElementById("line9").innerText;
+	document.getElementById("qrcode").innerHTML='';
+	var m_table=document.getElementsByClassName("modal_table")[0];
+	var json=JSON.parse(cnt);
+	let temp='';
+	temp+='<tr><div id="qrcode"  height="180"></div></tr>';
+	for (var key in json.datasetSpecificFields){
+		if(!key.localeCompare("paymentDataFields")){
+		
+		}
+		else{
+			var value = json.datasetSpecificFields[key];
+			temp+='<tr><td>'+key+'</td><td> : '+value+'</td></tr>';
+		}
+	}
+	m_table.innerHTML=temp;
+	modal = document.getElementById("myModal");
+	new QRCode(document.getElementById("qrcode"), json.uid);
+	modal.style.display = "block";
+}
+		</script>
+        
+    </body>
+</html>
